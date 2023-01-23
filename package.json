@@ -1,0 +1,37 @@
+{
+	"name": "nurd",
+	"version": "0.1.0",
+	"author": "Loren Yu <yuloren@gmail.com>",
+	"description": "Online real-time multiplayer pattern-matching game using Node.js.",
+	"contributors": [
+		{
+			"name": "Loren Yu",
+			"email": "yuloren@gmail.com"
+		}
+	],
+	"scripts": {
+		"start": "node server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:lorenyu/nurd.git"
+	},
+	"dependencies": {
+		"socket.io": "0.6.x",
+		"underscore": "1.4.x",
+		"jade": "0.28.2",
+		"jade-browser": "0.0.x",
+		"express": "3.1.0",
+		"less": "1.3.x",
+		"less-middleware": "0.1.12"
+	},
+	"devDependencies": {
+		"mocha": "1.8.x",
+		"chai": "1.5.x"
+	},
+	"bundleDependencies": [
+	],
+	"engine": {
+		"node": "0.6.x"
+	}
+}

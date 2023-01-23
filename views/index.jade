@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h1 Games
+  button.js-create-game + New Game
+  ul.games
+    - each game in games
+      include game-link
+  script
+    $(document).ready(function() {
+      var eventEngine = new EventEngine();
+      new EventEngineHttpClient(eventEngine, {
+        onInitialized: function() {
+          $('.js-create-game').click(function(event) {
+            eventEngine.fire('client:game:new', {});
+          });
+          eventEngine.observe('server:game:new', function(event) {
+            $('.games').append(jadeTemplates.render('game-link', { game: event.data.game }));
+          });
+          eventEngine.observe('server:game:delete', function(event) {
+            $('a[data-game-id=' + event.data.game.id + ']').remove();
+          });
+        }
+      });
+    });
+    

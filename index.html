@@ -1,0 +1,72 @@
+<html>
+<head>
+    <title>Tttrio - a fast real-time multiplayer pattern-matching game to hone your logical skills</title>
+    <meta name="description" content="Play Tttrio free now. Face off against friends, family, and strangers in a skill-based game of quick perception and pattern matching. Find trios of cards to score points and win.">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+    <meta property="fb:app_id" content="273726349334428" />
+    <meta property="og:title" content="Tttrio - a fast real-time multiplayer pattern-matching game to hone your logical skills"/>
+    <meta property="og:type" content="game"/>
+    <meta property="og:url" content="http://tttrio.com"/>
+    <meta property="og:image" content="http://tttrio.com/images/logo.png"/>
+    <meta property="og:site_name" content="Tttrio"/>
+    <meta property="og:description" content="Play Tttrio free now. Face off against friends, family, and strangers in a skill-based game of quick perception and pattern matching. Find trios of cards to score points and win."/>
+    
+    <link rel="icon" href="/images/favicon.png" sizes="64x64">
+    <link rel="apple-touch-icon" href="/images/favicon.png"/>
+    <link type="text/css" href="/css/jquery-ui-themes/jquery-ui-1.8.16.custom.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/css/animations.css" media="screen, handheld" >
+    <link type="text/css" rel="stylesheet" href="/css/nurd.css" media="screen, handheld" >
+    <!--link type="text/css" rel="stylesheet" href="/css/handheld.css" media="handheld" -->
+    <script type="text/javascript" src="/js/lib/jquery-1.4.3.js" ></script>
+    <script type="text/javascript" src="/js/lib/jquery-ui-1.8.16.custom.min.js"></script>
+  <script type="text/javascript" src="/js/lib/underscore.js" ></script>
+  <script type="text/javascript" src="/js/lib/jade.min.js" ></script>
+  <script type="text/javascript" src="/js/lib/modernizr-2.0.6.js"></script>
+  <script type="text/javascript" src="jsutil.js" ></script>
+  <script type="text/javascript" src="EventEngine.js" ></script>
+  <script type="text/javascript" src="/js/EventEngineHttpClient.js" ></script>
+  <script type="text/javascript" src="/js/GameClient.js" ></script>
+  <script type="text/javascript" src="/js/ChatClient.js" ></script>
+  <script type="text/javascript">
+
+  $(document).ready(function() {
+    new EventEngineHttpClient({
+      onInitialized: function() {
+        var game = new Game();
+      }
+    });
+  });
+  EventEngine.observeAll(function(event) {
+    log('received event:' + event.name + ', data=' + JSON.stringify(event.data));
+  });
+  </script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-13105739-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  
+</head>
+<body>
+    <div id="fb-root"></div>
+    <script>
+        // Googple Plus One
+        (function() { var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true; po.src = 'https://apis.google.com/js/plusone.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s); })();
+        // Facebook Like
+        (function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) {return;} js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=273726349334428"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));
+        // Twitter Share Button
+        (function() { var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//platform.twitter.com/widgets.js'; var s0 = document.getElementsByTagName('script')[0]; s0.parentNode.insertBefore(s, s0); })();
+    </script>
+</body>
+</html>

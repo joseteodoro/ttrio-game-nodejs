@@ -1,0 +1,207 @@
+@import "variables";
+@import "mixins";
+@import "reset";
+@import "components";
+
+/* main.css */
+
+body { background: rgb(191,234,244); font-family: arial;}
+.background-container { }
+.outer-container { margin: 0 auto; position: relative; }
+
+@media screen and (min-width: 1024px) {
+    .outer-container { width: 1024px; }
+}
+@media screen and (max-width: 1024px) {
+    .outer-container { width: 100%; }
+}
+
+header { background: #2987E6; padding: 12px 0 0;  }
+nav {
+    background: #E3F6FC;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    button {
+        color: @nav-link-color;
+        cursor: pointer;
+        font-size: 1.2em;
+        padding: 4px 8px;
+        &:hover {
+            color: #222;
+        }
+    }
+    #restart-game-btn { color: @nav-link-color; cursor: pointer; font-size: 1.2em; padding: 4px 8px; position: relative;
+        .waiting { color: #BFEAF4; display: none; font-size: 0.8em; left: -60px; padding: 3px 10px; position: absolute; top: 32px; width: 200%; }
+        &:hover { color: #222; }
+        &.selected { .blue-highlight();
+            .waiting { display: block; }
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    nav div { width: 1024px; }
+}
+@media screen and (max-width: 1024px) {
+    nav div { width: 100%; }
+}
+
+article { position: relative; }
+footer {
+    border-top: solid 1px #666;
+    color: #666;
+    font-weight: bold;
+    text-align: center;
+    a {
+        color: #2987E6;
+    }
+}
+
+article {
+    .share-widgets { background: rgba(255, 255, 255, 0.3); padding: 12px 12px 19px; 
+        .share-widget { margin-top: 8px; }
+        .share-widget.twitter-share-button-container { margin-top: 15px; }
+    }
+}
+@media screen and (min-width: 481px) {
+    article {
+        .share-widgets { border-radius: 0 5px 5px 0; position: fixed; left: 0; top: 20px; }
+    }
+}
+
+h1 { text-align: center; }
+#game-container { background: transparent url(/images/board.png) no-repeat center 0px; background-size: 516px 461px; min-height: 463px; overflow:auto; position: relative; }
+
+#tmp { display: none; }
+
+/* game controls */
+.game-controls { margin-top: 10px; text-align: center; }
+
+@media screen and (min-width: 481px) {
+    #restart-game-btn:hover .button {
+        .icon { display: none; }
+        .help-text { display: block; }
+    }
+}
+
+#end-game-btn.selected { .blue-highlight(); }
+
+/* game elements */
+.card-container .json { display:none; }
+.card-container .card-img {display:none;}
+
+.card {
+    .card(@card-width);
+}
+
+.cards-in-play { height: 398px; margin: 10px auto 0; overflow:hidden; padding:49px 43px 6px 53px; width:420px; }
+.cards-in-play .card { float:left; margin:2px; overflow:hidden; }
+.cards-in-play .card:hover { /*background: -webkit-linear-gradient(top, #fcf2b8 0%,#fce24e 50%,#f9d400 51%,#f7ed91 100%);*/ }
+.cards-in-play .card.selected { .blue-highlight(); }
+.cards-in-play .card.number0 .card-object { }
+.cards-in-play .card.number1 .card-object { }
+.cards-in-play .card.number2 .card-object { }
+
+@media screen and (min-width: 481px) {
+    .players { display: none; position: absolute; left: 0; top: 75px; width: 250px;
+        .player{ background: #BFEAF4; border-radius: 18px; font-family: Arial; float: left; margin: 6px; padding: 12px; position: relative;
+            &:nth-of-type(2n) { top: 4px; }
+            &:nth-of-type(3n) { top: -4px; }
+            .background { background: url(/images/balloons.png); background-size: 75px 48px; display: inline-block; height: 16px; margin-right: 6px; width: 15px; }
+            &[color="0"] { .background { background-position: 0px 0; } }
+            &[color="1"] { .background { background-position: -15px 0; } }
+            &[color="2"] { .background { background-position: -30px 0; } }
+            &[color="3"] { .background { background-position: -45px 0; } }
+            &[color="4"] { .background { background-position: -60px 0; } }
+            &[color="5"] { .background { background-position: 0px -16px; } }
+            &[color="6"] { .background { background-position: -15x -16px; } }
+            &[color="7"] { .background { background-position: -30px -16px; } }
+            &[color="8"] { .background { background-position: -45px -16px; } }
+            &[color="9"] { .background { background-position: -60px -16px; } }
+            &[color="10"] { .background { background-position: 0px -32px; } }
+            &[color="11"] { .background { background-position: -15px -32px; } }
+            &[color="12"] { .background { background-position: -30px -32px; } }
+            &[color="13"] { .background { background-position: -45px -32px; } }
+            &[color="14"] { .background { background-position: -60px -32px; } }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 img { width: 300px; }
+}
+
+@media screen and (max-width: 480px) {
+    .players { display: none; }
+}
+
+@media screen and (max-width: 480px) {
+    .balloons { display: none; }
+}
+
+@media screen and (max-width: 480px) {
+    .name-form-overlay-container {
+        h3 img { width: 200px; }
+        h4 { font-size: 16px; margin-top: 6px }
+        .name-form-overlay {
+            margin-top: 0;
+        }
+    }
+}
+
+.game-controls {  }
+
+#chat {
+    font-family: arial; margin:-17px auto 0; padding: 12px 24px ; width: 600px;
+    .chat-form {
+        label { font-weight: bold; }
+        .msg { background: transparent; border: 0; font-size: 16px; padding: 4px; width:350px; }
+    }
+    .chat-msgs { height: 250px; overflow: auto;
+        .chat-msg {
+            margin:5px 0 0;
+            .sender { background:#E1F3F7; border-radius:3px; display:inline-block; margin:0 7px 0 0; padding:4px 5px; }
+            .msg { display:inline-block;
+                .cards { display:inline-block;
+                    .card { border: solid 3px; }
+                    &.set { .card { border-color:#d2ff52 #4FED44 #4FED44 #d2ff52; } }
+                    &.false-set { .card { border-color:#FFA435 #e73827 #e73827 #FFA435; } }
+                }
+            }
+        }
+    }
+}
+#chat .chat-msgs .chat-msg .msg .cards .card { display:inline-block; .card(64px); }
+
+@media screen and (max-width: 650px) {
+    #chat { width: 468px; }
+}
+
+@media screen and (max-height: 400px) {
+    nav { position: static; }
+}
+
+.background-container { position: relative; }
+
+.sky { .sky-gradient(); height: 500px; left: 0; position: absolute; top: 0; width: 100%; z-index: -1; }
+@media screen and (min-width: 481px) {
+    .moon { background: url(/images/moon.png) repeat-x 0 0; background-size: 100% 100%; top: 50px; height: 70px; right: 180px; position: absolute; width: 70px; z-index: -1; }
+    .cloud-1 {
+        background: url(/images/cloud-1.png) repeat-x 0 0; top: 287px; height: 430px; left: 0; position: absolute; width: 100%; z-index: -1;
+        -webkit-animation: cloud1 280s infinite normal;
+        -webkit-animation-timing-function: linear;
+    }
+    .cloud-2 {
+        background: url(/images/cloud-2.png) repeat-x 0 0; top: 336px; height: 381px; left: 0; position: absolute; width: 100%; z-index: -1;
+        -webkit-animation: cloud2 240s infinite normal;
+        -webkit-animation-timing-function: linear;
+    }
+    .cloud-3 {
+        background: url(/images/cloud-3.png) repeat-x 0 0; top: 382px; height: 335px; left: 0; position: absolute; width: 100%; z-index: -1;
+        -webkit-animation: cloud3 200s infinite normal;
+        -webkit-animation-timing-function: linear;
+    }
+}
+
